@@ -1,0 +1,27 @@
+// Place all the styles related to the Events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.event-user {
+    text-align: center;
+}
+.s40 {
+    width:40px;
+    height: 40px;
+}
+.s80 {
+    width:80px;
+    height: 80px;
+}
+.event-timestamp {
+    float: right;
+}
+.event-item {
+    border-bottom: 1px solid #f0f0f0;
+    padding-top: 20px;
+}
+.content {
+    padding: 0 300px;
+}
+.nav {
+    margin-top: 20px;
+}

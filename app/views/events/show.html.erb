@@ -1,0 +1,28 @@
+<div class="content">
+  <div class="user-item">
+    <div class="event-user">
+      <div class="user-avatar">
+        <img class="avatar s80" alt="<%= @user['name'] %>'s avatar" src="<%= @user['avatar_url'] %>"/>
+      </div>
+      <div class="user-name"><%= @user['name'] %></div>
+      @<a href="<%= @user['html_url'] %>"><%= @user['login'] %></a> | Member since <%= @user['created_at'] %>
+    </div>
+  </div>
+  <h2>Recent Public Events</h2>
+  <% if @events.length > 0 %>
+    <% @events.each do |event| %>
+      <div class="event-item">
+        <div class="event-timestamp"><%= event['created_at'] %></div>
+        <div class="event-username">
+          @<a href="https://github.com/<%= event['actor']['login'] %>"><%= event['actor']['login'] %></a>
+        </div>
+        <div><%= event['type'].gsub(/Event$/,'') %> event in <a href="https://github.com/<%= event['repo']['name'] %>"><%= event['repo']['name'] %></a></div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="">Sorry, @<%= @user['login'] %> has no public events!</div>
+  <% end %>
+  <div class="nav">
+    <%= link_to 'home', root_path(:q => params[:q]) %> | <%= link_to 'back', users_path(:q => params[:q]) %>
+  </div>
+</div>

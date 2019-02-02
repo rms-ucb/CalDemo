@@ -1,0 +1,11 @@
+<div class="content">
+  <h1>GitHub API on Rails</h1>
+  <%= form_tag "/users", method: "get" do %>
+    <%= label_tag :q, "Show recent public events for any GitHub user" %>
+    <%= text_field_tag :q, params[:q], :placeholder => "enter a GitHub username" %>
+    <%= submit_tag "Search" %>
+  <% end %>
+  <% @github_api_connection.errors.full_messages.each do |msg| %>
+    <div class="app-error">Error: <%= msg %></div>
+  <% end %>
+</div>

@@ -1,0 +1,25 @@
+<div class="content">
+  <%= form_tag "/users", method: "get" do %>
+    <%= text_field_tag :q, params[:q], :placeholder => "enter a GitHub username" %>
+    <%= submit_tag "Search" %>
+  <% end %>
+  <h3 class="results-msg">
+    <% if @results_count == 0 %>
+      Sorry, no users found
+    <% elsif @results_count > Settings.GITHUB_MAX_USER_RESULTS %>
+      Showing first <%= Settings.GITHUB_MAX_USER_RESULTS %> of <%= number_with_delimiter(@results_count) %> users
+    <% else %>
+      Showing <%= pluralize(number_with_delimiter(@results_count),'user') %>
+    <% end %>
+    matching <span class="query"><%= params[:q] %></span>
+  </h3>
+  <% @users.each do |user| %>
+    <div class="user-item">
+      <img class="avatar s40" alt="<%= user['login'] %>'s avatar" src="<%= user['avatar_url'] %>"/>
+      @<a href="<%= user['html_url'] %>"><%= user['login'] %></a> | <%= link_to 'show events', event_path(user['login'], :q => params[:q]) %>
+    </div>
+  <% end %>
+  <div class="nav">
+    <%= link_to 'home', root_path %>
+  </div>
+</div>
