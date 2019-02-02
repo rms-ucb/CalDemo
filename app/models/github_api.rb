@@ -1,6 +1,4 @@
 # Manage connections to the GitHub API
-# Validation is used, although technically not required
-# since this demo _could_ use anonymous GitHub access
 class GithubAPI
   include ActiveModel::Model
   attr_accessor :github_oath_access_token
