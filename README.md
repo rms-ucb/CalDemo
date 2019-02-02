@@ -59,7 +59,3 @@ By default, this container will start up the app in "production" mode. To change
 ``
 $ docker run -d -p 3000:3000 -e RAILS_ENV=development -e GITHUB_OATH_ACCESS_TOKEN="$(cat ~/path-to-token)" cal-demo
 ``
-
-## Contact
-
-ryan.max.steinberg@gmail.com
