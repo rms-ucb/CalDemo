@@ -18,7 +18,9 @@ This is a demo [Ruby on Rails](https://rubyonrails.org/) application that displa
 
 ``
 $ git clone git@github.com:rms-ucb/CalDemo.git
+
 $ cd CalDemo
+
 $ bundle install
 ``
 
