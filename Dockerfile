@@ -19,4 +19,9 @@ RUN RAILS_ENV=production bin/rails assets:precompile
 
 EXPOSE 3000
 
-CMD ["rails", "server", "-b", "0.0.0.0", "-e", "${RAILS_ENV:-production}"]
+# default Rails environment variables
+ENV RAILS_ENV production
+ENV RAILS_LOG_TO_STDOUT enabled
+ENV RAILS_SERVE_STATIC_FILES enabled
+
+CMD ["rails", "server", "-b", "0.0.0.0"]
